@@ -1,4 +1,4 @@
-import Gulp from 'Gulp'
+import Gulp from 'gulp'
 import InlineCss from 'gulp-inline-css'
 import Mustache from 'gulp-mustache'
 
