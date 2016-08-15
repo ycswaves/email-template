@@ -1,0 +1,9 @@
+html
+  head
+    title= title
+  body
+    form#fileUpload(method="post" action="/submit-csv" enctype="multipart/form-data")
+        label(for="payload") Select a file to upload:
+        input#payload(type="file" name="myFile" accept="csv/*")
+        br
+        button#upload Upload

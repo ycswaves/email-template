@@ -1,0 +1,46 @@
+body {
+  background-color: #FFFFFF;
+  font-family: 'Open Sans', 'Segoe UI', Segoe, 'Segoe WP', 'Helvetica Neue', 'Roboto', sans-serif;
+  font-weight: 200;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  -webkit-font-smoothing: antialiased; }
+
+.table-body {
+  background-color: #eeeeee; }
+  .table-body__main {
+    background: #f6f6f6;
+    width: 650px;
+    margin: 5% auto; }
+
+.overview {
+  padding: 20px; }
+  .overview__greeting {
+    font-size: 22px; }
+
+.legend {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  bottom: -5px; }
+  .legend-upcoming, .project-header-upcoming {
+    background-color: orange; }
+  .legend-current, .project-header-current {
+    background-color: green; }
+  .legend-ramping, .project-header-ramping {
+    background-color: red; }
+
+.project {
+  margin-top: 15px;
+  width: 100%; }
+  .project__body {
+    padding: 0 15px; }
+  .project__label {
+    font-weight: 600; }
+
+.project-header__title {
+  padding: 5px;
+  color: whiteSmoke; }
