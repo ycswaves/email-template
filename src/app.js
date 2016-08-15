@@ -10,10 +10,11 @@ const app = Express()
 const uploadHandler = Multer({storage: Multer.memoryStorage()})
 
 const OUTPUT_PATH = __dirname + '/../output/'
+const port = process.env.PORT || 3000
 
 app.set('views', __dirname+'/../views').set('view engine', 'pug');
 
-app.listen(3000, () => {
+app.listen(port, () => {
   console.log('server started')
 })
 

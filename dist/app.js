@@ -25,10 +25,11 @@ var app = (0, _express2.default)();
 var uploadHandler = (0, _multer2.default)({ storage: _multer2.default.memoryStorage() });
 
 var OUTPUT_PATH = __dirname + '/../output/';
+var port = process.env.PORT || 3000;
 
 app.set('views', __dirname + '/../views').set('view engine', 'pug');
 
-app.listen(3000, function () {
+app.listen(port, function () {
   console.log('server started');
 });
 
