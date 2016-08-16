@@ -1,9 +1,12 @@
 html
   head
     title= title
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u', crossorigin='anonymous')
   body
-    form#fileUpload(method="post" action="/submit-csv" enctype="multipart/form-data")
-        label(for="payload") Select a file to upload:
-        input#payload(type="file" name="myFile" accept="csv/*")
-        br
-        button#upload Upload
+    div.container
+      div.jumbotron
+        form#fileUpload.form(method="post" action="/submit-csv" enctype="multipart/form-data")
+          label(for="payload") Select a file to upload:
+          input#payload(type="file" name="myFile" accept="csv/*")
+          br
+          button.btn.btn-default#upload Upload

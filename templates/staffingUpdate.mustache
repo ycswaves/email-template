@@ -5,61 +5,39 @@
   <title>Staffing Update 1</title>
   <link rel="stylesheet" href="staffingUpdate.css">
 </head>
-<body>
-  <table class="table-body" width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
-    
-    <tbody>
+<body>      
+  <table class="table-body" border="0" cellspacing="0" cellpadding="0" >
       <tr>
-        <td class="header"></td>
+        <td class="overview">
+          <p class="overview__greeting">Hello {{region}},</p>
+          <p>{{{overview}}}</p>
+        </td>
       </tr>
+      
       <tr>
         <td>
-          <table class="table-body__main">
-            <tbody>
+          <p class="legend-col"><span class="legend legend-upcoming">&nbsp;</span>&nbsp;Upcoming&nbsp;
+            <span class="legend legend-current">&nbsp;</span>&nbsp;Current&nbsp;
+            <span class="legend legend-ramping">&nbsp;</span>&nbsp;Ramping Down&nbsp;
+          </p>
+          {{#projects}}
+          <table class="project">
+              <tr class="project-header project-header-{{status}}"><td class="project-header__title">{{title}}</td></tr>
               <tr>
-                <td class="overview">
-                  <p class="overview__greeting">Hello {{region}},</p>
-                  <p>{{{overview}}}</p>
-
-                  <p class="legend-col">
-                    <span class="legend legend-upcoming"></span>&nbsp;Upcoming&nbsp;
-                    <span class="legend legend-current"></span>&nbsp;Current&nbsp;
-                    <span class="legend legend-ramping"></span>&nbsp;Ramping Down&nbsp;
-                  </p>
-
+                <td class="project__body">
+                  <p><span class="project__label">NO. PEOPLE:&nbsp;</span>{{numOfPeople}}</p>
+                  <p><span class="project__label">LOCATION:&nbsp;</span>{{location}}</p>
+                  <p><span class="project__label">OPEN ROLES:&nbsp;</span>{{openRoles}}</p>
+                  <p>{{{description}}}</p>
                 </td>
               </tr>
-              
-              <tr>
-                <td>
-                  {{#projects}}
-                  <table class="project">
-                    <thead class="project-header project-header-{{status}}">
-                      <tr><th class="project-header__title">{{title}}</th></tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td class="project__body">
-                          <p><span class="project__label">NO. PEOPLE:&nbsp;</span>{{numOfPeople}}</p>
-                          <p><span class="project__label">LOCATION:&nbsp;</span>{{location}}</p>
-                          <p><span class="project__label">OPEN ROLES:&nbsp;</span>{{openRoles}}</p>
-                          <p>
-                            {{{description}}}
-                          </p>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                  {{/projects}}
-                </td>
-              </tr>
-
-            </tbody>
           </table>
+          {{/projects}}
         </td>
-        
       </tr>
-    </tbody>
+  </table>
+        
+     
   </table>
 </body>
 </html>

@@ -2,7 +2,7 @@ import Gulp from 'gulp'
 import InlineCss from 'gulp-inline-css'
 import Mustache from 'gulp-mustache'
 
-const OUTPUT_PATH = __dirname + '/../output/'
+const OUTPUT_PATH = __dirname + '/../../output/'
 
 export default function (templData, callback) {
   Gulp.task('inlineCss', ['mustache'], function() {
@@ -18,7 +18,7 @@ export default function (templData, callback) {
   });
 
   Gulp.task('mustache', function() {
-    return Gulp.src(__dirname+'/../templates/*.mustache')
+    return Gulp.src(__dirname+'/../../templates/*.mustache')
           .pipe(Mustache(templData, {extension: '.html'}))
           .pipe(Gulp.dest(OUTPUT_PATH));
   })
