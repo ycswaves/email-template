@@ -24,9 +24,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon --exec babel-node src/app.js",
-    "build": "gulp",
-    "start": "gulp"
+    "dev": "gulp",
+    "start": "node dist/app.js"
   },
   "author": "",
   "license": "ISC"
