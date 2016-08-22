@@ -1,51 +1,35 @@
 import Express from 'express'
 import Multer from 'multer'
-import XLSX from 'xlsx'
 import RunTask from './libs/taskRunner'
+import XlsxConvert from './libs/xlsxConverter'
+import fs from 'fs'
 
-//import { Converter } from 'csvtojson'
 
 const app = Express()
-
 const uploadHandler = Multer({storage: Multer.memoryStorage()})
-
 const OUTPUT_PATH = __dirname + '/../output/'
 const port = process.env.PORT || 3000
 
 app.set('views', __dirname+'/../views').set('view engine', 'pug');
+app.use(Express.static('public'));
+
 
 app.listen(port, () => {
-  console.log('server started')
+  console.log('server started, port:'+port)
 })
 
 app.get('/', (req, res) => {
-  res.send('hello template')
+  res.render('uploadPage', {title: "Staffing Template"})
 })
-.get('/upload', (req, res) => {
-  res.render('uploadPage', {title: "I love files!"})
+
+app.get('/preview', (req, res) => {
+  fs.readFile(OUTPUT_PATH + 'staffingUpdate.html', (err, contents) => {
+    contents = contents.toString()
+    res.render('preview', {rawHtml: contents.substring(contents.indexOf('<body>'), contents.indexOf('</body>')+7)})
+  });
 })
-.post('/submit-csv', uploadHandler.single('myFile'), (req, res) => {
-  const data = new Uint8Array(req.file.buffer);
-  let arr = new Array();
-  for(let i = 0; i != data.length; ++i) {
-    arr.push(String.fromCharCode(data[i]))
-  };
-  const bstr = arr.join("");
-  const workbook = XLSX.read(bstr, {type: 'binary'})
 
-
-  const sheetNamelist = workbook.SheetNames
-  let result = {}
-  sheetNamelist.forEach((name) => {
-    result[name] = XLSX.utils.sheet_to_json(workbook.Sheets[name])
-  })
-
-  const templData = Object.assign(result.Others[0], {
-    projects: result.Projects
-  })
-
-  RunTask(templData, () => {
-
+app.get('/iframe', (req, res) => {
     const options = {
       root: OUTPUT_PATH,
       dotfiles: 'deny',
@@ -61,9 +45,14 @@ app.get('/', (req, res) => {
         res.status(err.status).end();
       }
     });
+})
 
+app.post('/submit', uploadHandler.single('excel-file'), (req, res) => {
+  const templData = XlsxConvert(req.file.buffer)
+
+  RunTask(templData, () => {
+    res.json({redirect: '/preview'})
   })
-  //res.send(result)
 })
 
 

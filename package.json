@@ -16,14 +16,17 @@
   "devDependencies": {
     "babel-cli": "^6.11.4",
     "babel-preset-es2015": "^6.13.2",
-    "dotenv": "^2.0.0",
+    "browser-sync": "^2.14.0",
+    "gulp-babel": "*",
+    "gulp-nodemon": "^2.1.0",
+    "gulp-sass": "^2.3.2",
     "nodemon": "^1.10.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon --exec babel-node src/app.js",
-    "build": "babel src --out-dir dist",
-    "start": "node dist/app.js"
+    "build": "gulp",
+    "start": "gulp"
   },
   "author": "",
   "license": "ISC"

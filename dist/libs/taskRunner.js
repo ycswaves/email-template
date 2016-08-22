@@ -16,7 +16,7 @@ exports.default = function (templData, callback) {
   });
 
   _gulp2.default.task('mustache', function () {
-    return _gulp2.default.src(__dirname + '/../templates/*.mustache').pipe((0, _gulpMustache2.default)(templData, { extension: '.html' })).pipe(_gulp2.default.dest(OUTPUT_PATH));
+    return _gulp2.default.src(__dirname + '/../../templates/*.mustache').pipe((0, _gulpMustache2.default)(templData, { extension: '.html' })).pipe(_gulp2.default.dest(OUTPUT_PATH));
   });
 
   _gulp2.default.start('inlineCss', callback);
@@ -36,4 +36,4 @@ var _gulpMustache2 = _interopRequireDefault(_gulpMustache);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var OUTPUT_PATH = __dirname + '/../output/';
+var OUTPUT_PATH = __dirname + '/../../output/';

@@ -1,0 +1,32 @@
+body {
+  background-color: #E5EDF1; }
+
+.box {
+  font-size: 1.25rem;
+  background-color: #c8dadf;
+  position: relative;
+  padding: 100px 20px;
+  margin-top: 5%;
+  text-align: center; }
+  .box.has-advanced-upload {
+    outline: 2px dashed gray;
+    outline-offset: -10px; }
+    .box.has-advanced-upload .box__dragndrop {
+      display: inline; }
+  .box.is-dragover {
+    background-color: white;
+    outline-offset: -20px;
+    transition: background-color 300ms ease-in-out; }
+  .box input[type=file] {
+    display: none; }
+  .box__button {
+    margin-top: 5%;
+    padding: 5px 50px; }
+  .box__filename {
+    margin-top: 10px;
+    color: gray; }
+
+.choose-file {
+  cursor: pointer; }
+  .choose-file:hover {
+    text-decoration: none; }
