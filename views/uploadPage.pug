@@ -8,16 +8,26 @@ html
     div.container
       div.col-md-8.col-md-offset-2
         form#form.box(method="post", action="/submit", enctype="multipart/form-data")
+          div
+            img.upload-icon(src="/assets/arrow_up_upload.png")
+
           div#file.box__input
             input.box__file(type="file", name="excel-file", accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
 
-            label(for="file")
+            label.box__label(for="file")
               a.choose-file.js-choose-file Choose a file
               span.box__dragndrop &nbsp;or drag it here
+
 
           div.box__filename.js-filename  
 
           button.box__button.btn.btn-primary(type="submit") Upload
+
+        ul
+          li 
+            a(href="https://docs.google.com/a/thoughtworks.com/spreadsheets/d/1Ad7cz9ZfflNTHAcy-iwkpOL-JanvpwWW_SRdUZvjxAA/edit?usp=sharing", target="_blank") Sample xlsx file
+          li 
+            a(href="/assets/HeaderImage_v1.jpg", target="_blank") Header banner
 
     script(src='https://code.jquery.com/jquery-1.12.4.min.js', type='text/javascript', integrity='sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=', crossorigin='anonymous')
     script(src='/js/main.js', type='text/javascript')

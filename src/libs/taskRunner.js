@@ -10,7 +10,6 @@ export default function (templData, callback) {
     return Gulp.src(OUTPUT_PATH+'*.html')
           .pipe(InlineCss({
             applyLinkTags: true,
-            applyTableAttributes: true,
             removeLinkTags: true,
             removeHtmlSelectors: true
           }))

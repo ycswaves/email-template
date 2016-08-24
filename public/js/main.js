@@ -23,13 +23,16 @@ if (isAdvancedUpload()) {
   })
   .on('drop', function(e) {
     var droppedFile = e.originalEvent.dataTransfer.files[0]
+    if (droppedFile.name.indexOf('.xlsx') === -1) {
+      return
+    }
     uploaded = droppedFile
     showFileName(droppedFile)
   })
   .on('submit', function(e) {
     e.preventDefault()
     if (uploaded === false) {
-      return false
+      return
     }
 
     submitHandle(uploaded)

@@ -9,7 +9,6 @@ exports.default = function (templData, callback) {
 
     return _gulp2.default.src(OUTPUT_PATH + '*.html').pipe((0, _gulpInlineCss2.default)({
       applyLinkTags: true,
-      applyTableAttributes: true,
       removeLinkTags: true,
       removeHtmlSelectors: true
     })).pipe(_gulp2.default.dest(OUTPUT_PATH));

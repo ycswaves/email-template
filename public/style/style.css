@@ -25,6 +25,13 @@ body {
   .box__filename {
     margin-top: 10px;
     color: gray; }
+  .box__label {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: 200; }
+
+.upload-icon {
+  width: 20%; }
 
 .choose-file {
   cursor: pointer; }
