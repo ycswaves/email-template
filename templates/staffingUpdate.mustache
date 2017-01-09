@@ -5,7 +5,7 @@
     <title>Staffing Update</title>
     <link rel="stylesheet" href="staffingUpdate.css">
   </head>
-  <body>      
+  <body>
     <table class="table-body" border="0" cellspacing="0" cellpadding="0" >
       <tr>
         <td class="overview"><h2>{{date}}</h2></td>
@@ -35,13 +35,20 @@
             <span class="legend legend-current">Current</span>
             <span class="legend legend-ramping">Ramping Down</span>
           </p>
-        </td>        
-      </tr>     
+        </td>
+      </tr>
     </table>
 
     {{#projects}}
-    <span class="project-header project-header-{{status}}"><span class="project-header__title">{{title}}</span><span class="project-header__updated-by"> - Update by {{updatedBy}}</span></span>
-    <table class="table-body project">
+    <table border="0" cellspacing="0" cellpadding="0" class="table-body project">
+      <tr>
+        <td class="project__divider"></td>
+      </tr>
+      <tr>
+        <td class="project-header project-header-{{status}}">
+          <span class="project-header__title">{{title}}</span><span class="project-header__updated-by"> - Update by {{updatedBy}}</span>
+        </td>
+      </tr>
       <tr>
         <td class="project__body">
           <p><span class="project__label">No. of People:&nbsp;</span>{{numOfPeople}}</p>
@@ -51,6 +58,6 @@
         </td>
       </tr>
     </table>
-    {{/projects}}     
+    {{/projects}}
   </body>
 </html>
